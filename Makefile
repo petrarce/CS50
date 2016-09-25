@@ -1,6 +1,6 @@
 CC=gcc
-SOURCES+=main.c CLI_submenues.c
-OBJECTS+=main.o CLI_submenues.o
+SOURCES+=$(wildcard *.c)
+OBJECTS+=$(patsubst %.c, %.o, $(SOURCES))
 TARGET=main
 CFLAGS=-Iinclude -Isource -O0 -ggdb
 .PHONY: all clean
@@ -12,6 +12,7 @@ ${OBJECTS}:
 
 ${TARGET}:
 	${CC} ${CFLAGS} ${OBJECTS} -o ${TARGET}
+	mv ${TARGET} ./bin
 
 clean:
 	find -name "*.o" | xargs -i rm -rf {}
