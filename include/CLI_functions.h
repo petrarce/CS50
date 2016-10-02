@@ -8,7 +8,10 @@
 static CLI_submenu_s clean_db_menu = {
     "REMOVE FIELD FROM DB",
     "remove image",
-    NULL,
+    (char *[]){
+        "clean all images",
+        NULL
+    },
     NULL
 };
 static CLI_submenu_s add_db_fileld_menu = {
@@ -16,16 +19,15 @@ static CLI_submenu_s add_db_fileld_menu = {
     "append db",
     (char *[]){
         "from file",
-        "from console"
+        "from console",
+        NULL
     },
     NULL
 };
 static CLI_submenu_s db_menu = {
     "Database menu",
     "database menu",
-    (char *[]){
-        "clenall"
-    },
+    NULL,
     (CLI_submenu_s *[]){
         &clean_db_menu,
         &add_db_fileld_menu,
@@ -35,9 +37,7 @@ static CLI_submenu_s db_menu = {
 static CLI_submenu_s show_menu = {
     "Show image menu",
     "show image menu",
-    (char *[]){
-        "clenall"
-    },
+    NULL,
     NULL
 };
 static CLI_submenu_s mainmenu = {
@@ -55,5 +55,7 @@ static CLI_submenu_s mainmenu = {
 short* parse_mainmenu(char* choise);
 short* parce_db_menu(char* choise);
 short* parce_show_menu(char* choise);
+short* parce_add_db_fileld_menu(char* choise);
+short* parce_clean_db_menu(char* choise);
 
 #endif // CLI_functions_h

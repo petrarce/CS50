@@ -1,0 +1,6 @@
+request-storage:
+	structure with fields
+		-image_name: char*
+		-coordinates: struct{unsigned short x, unsigned short y}
+-Perhaps we should create connected list with requests (requests can came one after another and go to queue)
+-queue must be sized (add maximal size of queue)

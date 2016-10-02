@@ -1,5 +1,5 @@
+#include <stdlib.h>
 #include <stdio.h>
-//#include <curses.h>
 #include "CLI_submenues.h"
 
 void print_menu(CLI_submenu_s* const menu_itemn)
@@ -31,7 +31,7 @@ void menu_heandler(CLI_submenu_s* const menu_itemn, short* parse(char*))
         scanf_result = scanf("%s", choise);
         *parse(choise);
     }
-    
+
     free(choise);
     return;
 }

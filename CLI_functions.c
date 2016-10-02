@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "CLI_functions.h"
 #include "CLI_submenues.h"
 //temporary variable to use its adress as return value in parse functions
@@ -24,9 +25,11 @@ short* parse_mainmenu(char* choise)
 short* parce_db_menu(char* choise)
 {
     if(*choise == '1'){
+        menu_heandler(&clean_db_menu, parce_clean_db_menu);
         success = 1;
     }
     else if(*choise == '2'){
+        menu_heandler(&add_db_fileld_menu, parce_add_db_fileld_menu);
         success = 1;
     }
     else{
@@ -49,4 +52,32 @@ short* parce_show_menu(char* choise)
         success = 0;
     }
 	return (short *)&success;
+}
+
+short* parce_add_db_fileld_menu(char* choise){
+    if(*choise == '1'){
+        success = 1;
+    }
+    else if(*choise == '2'){
+        success = 1;
+    }
+    else{
+        print_str("Note: incorrect option was chosen. Please try again");
+        success = 0;
+    }
+    return (short *)&success;
+}
+
+short* parce_clean_db_menu(char* choise){
+    if(*choise == '1'){
+        success = 1;
+    }
+    else if(*choise == '2'){
+        success = 1;
+    }
+    else{
+        print_str("Note: incorrect option was chosen. Please try again");
+        success = 0;
+    }
+    return (short *)&success;
 }

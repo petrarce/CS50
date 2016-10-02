@@ -2,8 +2,8 @@ CC=gcc
 SOURCES+=$(wildcard *.c)
 OBJECTS+=$(patsubst %.c, %.o, $(SOURCES))
 TARGET=main
-CFLAGS=-Iinclude -Isource -O0 -ggdb
-.PHONY: all clean
+CFLAGS=-Iinclude -Isource -O0 -ggdb -std=c99
+.PHONY: all clean cleanall
 
 all: ${OBJECTS} ${TARGET}
 
@@ -18,4 +18,5 @@ clean:
 	find -name "*.o" | xargs -i rm -rf {}
 	find -name "*.a" | xargs -i rm -rf {}
 	find -name "*.so" | xargs -i rm -rf {}
-	rm -rf ./${TARGET}
+cleanall: clean
+	rm -rf ./bin/${TARGET}
