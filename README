@@ -1,0 +1,7 @@
+This is first 1.0 release of programm.
+Made by Ivan Folbort
+Instruktion:
+-compile proram by "make" command in the root directory
+-drow image in the ./files/file text file
+-run ./bin/main - the image will be printed to console
+Main fuctions of the program situated at cernel.c/h files
